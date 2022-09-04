@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>884425096664-bltlv32dcieogm1miom682rnh3vpbrtv.apps.googleusercontent.com</string>
+	<string>815584442716-kdiut97h6ochovu5u48ln7ih7hk07830.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.884425096664-bltlv32dcieogm1miom682rnh3vpbrtv</string>
+	<string>com.googleusercontent.apps.815584442716-kdiut97h6ochovu5u48ln7ih7hk07830</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBV7Fwl29-IoTiMrYSTBwdpdCEAGUjQUHA</string>
+	<string>AIzaSyDU_axxsg4rOL_LXihxbvREv_T0NAW6aLs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>884425096664</string>
+	<string>815584442716</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.furkanerzurumlu.toDoAppFirebase</string>
 	<key>PROJECT_ID</key>
-	<string>todoapp-87165</string>
+	<string>todoapp-d578a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>todoapp-87165.appspot.com</string>
+	<string>todoapp-d578a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:884425096664:ios:593c8a67d60fba9d2306ad</string>
+	<string>1:815584442716:ios:5a845f05decf25eba2a999</string>
+	<key>DATABASE_URL</key>
+	<string>https://todoapp-d578a-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,37 +16,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5aJ-XP-2aF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQf-Xd-xb7">
+                                <rect key="frame" x="47" y="108" width="321" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJ2-Qc-Bid">
+                                <rect key="frame" x="120" y="189" width="174" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="taskAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRP-1V-Ku5"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-o6-hSr">
+                                <rect key="frame" x="0.0" y="270" width="414" height="592"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="91G-6d-kIt">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IHV-aP-uFU">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DdY-LZ-fXI">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5aJ-XP-2aF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2aW-s0-CdE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5aJ-XP-2aF" secondAttribute="bottom" id="5TK-9L-Bk4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5aJ-XP-2aF" secondAttribute="trailing" id="OVR-0o-ze7"/>
-                            <constraint firstItem="5aJ-XP-2aF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jY9-3a-VRT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PJ2-Qc-Bid" secondAttribute="trailing" constant="120" id="KtR-hH-6kS"/>
+                            <constraint firstItem="gTd-o6-hSr" firstAttribute="top" secondItem="PJ2-Qc-Bid" secondAttribute="bottom" constant="50" id="QJS-fb-86M"/>
+                            <constraint firstItem="TQf-Xd-xb7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="VgE-0e-SL2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gTd-o6-hSr" secondAttribute="bottom" id="aIl-kO-6YS"/>
+                            <constraint firstItem="TQf-Xd-xb7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="eYI-1h-TF3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gTd-o6-hSr" secondAttribute="trailing" id="f8w-7L-PLr"/>
+                            <constraint firstItem="gTd-o6-hSr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gZX-BV-IN8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TQf-Xd-xb7" secondAttribute="trailing" constant="46" id="lqH-aP-c3B"/>
+                            <constraint firstItem="PJ2-Qc-Bid" firstAttribute="top" secondItem="TQf-Xd-xb7" secondAttribute="bottom" constant="47" id="owv-NM-9c8"/>
+                            <constraint firstItem="PJ2-Qc-Bid" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="pIb-0w-Xb9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cie-of-B9K"/>
+                    <connections>
+                        <outlet property="addTaskText" destination="TQf-Xd-xb7" id="LDP-m8-UHK"/>
+                        <outlet property="allTaskTableView" destination="gTd-o6-hSr" id="Smx-5X-w7n"/>
+                        <outlet property="taskAddButton" destination="PJ2-Qc-Bid" id="FiF-0e-aBx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,9 +82,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

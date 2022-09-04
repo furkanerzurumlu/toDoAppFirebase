@@ -7,17 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC11319628C243FD0076DC4E /* GoogleService.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC11319528C243FD0076DC4E /* GoogleService.plist */; };
 		DCD299DD28B4CC06001702CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299DC28B4CC06001702CD /* AppDelegate.swift */; };
 		DCD299DF28B4CC06001702CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299DE28B4CC06001702CD /* SceneDelegate.swift */; };
 		DCD299E128B4CC06001702CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299E028B4CC06001702CD /* ViewController.swift */; };
 		DCD299E428B4CC06001702CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD299E228B4CC06001702CD /* Main.storyboard */; };
 		DCD299E628B4CC07001702CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCD299E528B4CC07001702CD /* Assets.xcassets */; };
 		DCD299E928B4CC07001702CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD299E728B4CC07001702CD /* LaunchScreen.storyboard */; };
-		DCD299F228B4CC24001702CD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299F128B4CC24001702CD /* Router.swift */; };
-		DCD299F528B4CC69001702CD /* UIViewcontroller-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299F428B4CC69001702CD /* UIViewcontroller-Extensions.swift */; };
-		DCD299FF28B4DCC8001702CD /* addMissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299FE28B4DCC8001702CD /* addMissions.swift */; };
-		DCD29A0128B4DCDA001702CD /* addMissions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD29A0028B4DCDA001702CD /* addMissions.storyboard */; };
-		DCD29A0628B4F491001702CD /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD29A0528B4F491001702CD /* GoogleService-Info-2.plist */; };
 		DCD29A0928B4F594001702CD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DCD29A0828B4F594001702CD /* FirebaseAnalytics */; };
 		DCD29A0B28B4F594001702CD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = DCD29A0A28B4F594001702CD /* FirebaseCrashlytics */; };
 		DCD29A0D28B4F594001702CD /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DCD29A0C28B4F594001702CD /* FirebaseDatabase */; };
@@ -26,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC11319528C243FD0076DC4E /* GoogleService.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GoogleService.plist; sourceTree = "<group>"; };
 		DCD299D928B4CC06001702CD /* toDoAppFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoAppFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD299DC28B4CC06001702CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD299DE28B4CC06001702CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,11 +31,6 @@
 		DCD299E528B4CC07001702CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCD299E828B4CC07001702CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCD299EA28B4CC07001702CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCD299F128B4CC24001702CD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		DCD299F428B4CC69001702CD /* UIViewcontroller-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller-Extensions.swift"; sourceTree = "<group>"; };
-		DCD299FE28B4DCC8001702CD /* addMissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMissions.swift; sourceTree = "<group>"; };
-		DCD29A0028B4DCDA001702CD /* addMissions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = addMissions.storyboard; sourceTree = "<group>"; };
-		DCD29A0528B4F491001702CD /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,38 +69,19 @@
 			isa = PBXGroup;
 			children = (
 				DCD29A0228B4E82A001702CD /* Commons */,
-				DCD299F328B4CC4C001702CD /* Extensions */,
-				DCD299F028B4CC18001702CD /* Router */,
 				DCD299DC28B4CC06001702CD /* AppDelegate.swift */,
 				DCD299DE28B4CC06001702CD /* SceneDelegate.swift */,
 				DCD299E528B4CC07001702CD /* Assets.xcassets */,
 				DCD299E728B4CC07001702CD /* LaunchScreen.storyboard */,
+				DC11319528C243FD0076DC4E /* GoogleService.plist */,
 				DCD299EA28B4CC07001702CD /* Info.plist */,
-				DCD29A0528B4F491001702CD /* GoogleService-Info-2.plist */,
 			);
 			path = toDoAppFirebase;
-			sourceTree = "<group>";
-		};
-		DCD299F028B4CC18001702CD /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				DCD299F128B4CC24001702CD /* Router.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		DCD299F328B4CC4C001702CD /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DCD299F428B4CC69001702CD /* UIViewcontroller-Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DCD29A0228B4E82A001702CD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				DCD29A0428B4E857001702CD /* AddMission */,
 				DCD29A0328B4E83D001702CD /* HomePage */,
 			);
 			path = Commons;
@@ -121,15 +94,6 @@
 				DCD299E028B4CC06001702CD /* ViewController.swift */,
 			);
 			path = HomePage;
-			sourceTree = "<group>";
-		};
-		DCD29A0428B4E857001702CD /* AddMission */ = {
-			isa = PBXGroup;
-			children = (
-				DCD299FE28B4DCC8001702CD /* addMissions.swift */,
-				DCD29A0028B4DCDA001702CD /* addMissions.storyboard */,
-			);
-			path = AddMission;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,11 +164,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCD29A0628B4F491001702CD /* GoogleService-Info-2.plist in Resources */,
 				DCD299E928B4CC07001702CD /* LaunchScreen.storyboard in Resources */,
 				DCD299E628B4CC07001702CD /* Assets.xcassets in Resources */,
 				DCD299E428B4CC06001702CD /* Main.storyboard in Resources */,
-				DCD29A0128B4DCDA001702CD /* addMissions.storyboard in Resources */,
+				DC11319628C243FD0076DC4E /* GoogleService.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,10 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCD299FF28B4DCC8001702CD /* addMissions.swift in Sources */,
-				DCD299F228B4CC24001702CD /* Router.swift in Sources */,
 				DCD299E128B4CC06001702CD /* ViewController.swift in Sources */,
-				DCD299F528B4CC69001702CD /* UIViewcontroller-Extensions.swift in Sources */,
 				DCD299DD28B4CC06001702CD /* AppDelegate.swift in Sources */,
 				DCD299DF28B4CC06001702CD /* SceneDelegate.swift in Sources */,
 			);
