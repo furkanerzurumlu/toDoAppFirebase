@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DC11319628C243FD0076DC4E /* GoogleService.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC11319528C243FD0076DC4E /* GoogleService.plist */; };
+		DC11319E28C64BE10076DC4E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC11319C28C64BE10076DC4E /* TaskCell.swift */; };
+		DC11319F28C64BE10076DC4E /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC11319D28C64BE10076DC4E /* TaskCell.xib */; };
 		DCD299DD28B4CC06001702CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299DC28B4CC06001702CD /* AppDelegate.swift */; };
 		DCD299DF28B4CC06001702CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299DE28B4CC06001702CD /* SceneDelegate.swift */; };
 		DCD299E128B4CC06001702CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299E028B4CC06001702CD /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		DC11319528C243FD0076DC4E /* GoogleService.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GoogleService.plist; sourceTree = "<group>"; };
+		DC11319C28C64BE10076DC4E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		DC11319D28C64BE10076DC4E /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		DCD299D928B4CC06001702CD /* toDoAppFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoAppFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD299DC28B4CC06001702CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD299DE28B4CC06001702CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC11319B28C606200076DC4E /* TaskTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DC11319C28C64BE10076DC4E /* TaskCell.swift */,
+				DC11319D28C64BE10076DC4E /* TaskCell.xib */,
+			);
+			path = TaskTableViewCell;
+			sourceTree = "<group>";
+		};
 		DCD299D028B4CC06001702CD = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		DCD29A0228B4E82A001702CD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				DC11319B28C606200076DC4E /* TaskTableViewCell */,
 				DCD29A0328B4E83D001702CD /* HomePage */,
 			);
 			path = Commons;
@@ -165,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCD299E928B4CC07001702CD /* LaunchScreen.storyboard in Resources */,
+				DC11319F28C64BE10076DC4E /* TaskCell.xib in Resources */,
 				DCD299E628B4CC07001702CD /* Assets.xcassets in Resources */,
 				DCD299E428B4CC06001702CD /* Main.storyboard in Resources */,
 				DC11319628C243FD0076DC4E /* GoogleService.plist in Resources */,
@@ -178,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC11319E28C64BE10076DC4E /* TaskCell.swift in Sources */,
 				DCD299E128B4CC06001702CD /* ViewController.swift in Sources */,
 				DCD299DD28B4CC06001702CD /* AppDelegate.swift in Sources */,
 				DCD299DF28B4CC06001702CD /* SceneDelegate.swift in Sources */,

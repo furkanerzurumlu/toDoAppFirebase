@@ -8,8 +8,8 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
- 
+class ViewController: UIViewController{
+    
     @IBOutlet weak var allTaskTableView: UITableView!
     @IBOutlet weak var addTaskText: UITextField!
     @IBOutlet weak var taskAddButton: UIButton!
@@ -18,6 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setLayout()
+        allTaskTableView.dataSource = self
+        allTaskTableView.delegate = self
+        
+        allTaskTableView.register(TaskCell.nibName, forCellReuseIdentifier: TaskCell.identifier)
+        
+
+        
         
         
     }
@@ -25,6 +32,7 @@ class ViewController: UIViewController {
     @IBAction func taskAddButton(_ sender: Any) {
         
     }
+    
     
     
     func setLayout(){
@@ -39,13 +47,13 @@ class ViewController: UIViewController {
         taskAddButton.layer.borderColor = UIColor.black.cgColor
         
         
-        let viewColor = hexStringToUIColor(hex: "#FCF8E8")
-        let buttonColor = hexStringToUIColor(hex: "94B49F")
-        let tableViewColor = hexStringToUIColor(hex: "DF7861")
+        let color1 = hexStringToUIColor(hex: "#FCF8E8")
+        let color2 = hexStringToUIColor(hex: "94B49F")
+//        let tableViewColor = hexStringToUIColor(hex: "DF7861")
         
-        view.backgroundColor = viewColor
-        taskAddButton.backgroundColor = buttonColor
-        allTaskTableView.backgroundColor = tableViewColor
+        view.backgroundColor = color1
+        taskAddButton.backgroundColor = color2
+        allTaskTableView.backgroundColor = color2
         
     }
     
@@ -72,3 +80,37 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = allTaskTableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as! TaskCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+        
+    }
+//    func tableView(_ tableView: UITableView,
+//                   editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                // delete your item here and reload table view
+            }
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_,_,completionHandler) in
+            //delete the item here
+            completionHandler(true)
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+}
