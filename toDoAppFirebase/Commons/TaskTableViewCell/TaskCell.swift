@@ -8,10 +8,12 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
-
+    
+    @IBOutlet weak var cellView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,7 +22,13 @@ class TaskCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func setCell(){
+        self.cellView.layer.cornerRadius = 10
+    }
 }
+
+
 
 extension TaskCell {
     static var identifier: String {

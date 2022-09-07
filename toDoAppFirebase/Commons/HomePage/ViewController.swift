@@ -23,17 +23,11 @@ class ViewController: UIViewController{
         
         allTaskTableView.register(TaskCell.nibName, forCellReuseIdentifier: TaskCell.identifier)
         
-
-        
-        
-        
     }
     
     @IBAction func taskAddButton(_ sender: Any) {
         
     }
-    
-    
     
     func setLayout(){
         
@@ -46,10 +40,14 @@ class ViewController: UIViewController{
         taskAddButton.layer.borderWidth = 2
         taskAddButton.layer.borderColor = UIColor.black.cgColor
         
+        allTaskTableView.separatorColor = .white
+    
+        addTaskText.placeholder = "add Task"
+        
         
         let color1 = hexStringToUIColor(hex: "#FCF8E8")
         let color2 = hexStringToUIColor(hex: "94B49F")
-//        let tableViewColor = hexStringToUIColor(hex: "DF7861")
+
         
         view.backgroundColor = color1
         taskAddButton.backgroundColor = color2
@@ -87,6 +85,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = allTaskTableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as! TaskCell
+        cell.selectionStyle = .none
+        let colorCell = hexStringToUIColor(hex: "#FCF8E8")
+        cell.cellView.backgroundColor = colorCell
         return cell
     }
     
@@ -110,6 +111,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .systemRed
+        
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }
