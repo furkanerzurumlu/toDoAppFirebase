@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController{
     
@@ -14,8 +15,12 @@ class ViewController: UIViewController{
     @IBOutlet weak var addTaskText: UITextField!
     @IBOutlet weak var taskAddButton: UIButton!
     
+    private let database = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         setLayout()
         allTaskTableView.dataSource = self
@@ -26,7 +31,10 @@ class ViewController: UIViewController{
     }
     
     @IBAction func taskAddButton(_ sender: Any) {
-        
+        let object: [String: Any] = [
+            "name": "deneme" as NSObject
+        ]
+        database.child("someting").setValue(object)
     }
     
     func setLayout(){
@@ -42,13 +50,10 @@ class ViewController: UIViewController{
         
         allTaskTableView.separatorColor = .white
     
-        addTaskText.placeholder = "add Task"
-        
+        addTaskText.placeholder = "Add Task"
         
         let color1 = hexStringToUIColor(hex: "#FCF8E8")
         let color2 = hexStringToUIColor(hex: "94B49F")
-
-        
         view.backgroundColor = color1
         taskAddButton.backgroundColor = color2
         allTaskTableView.backgroundColor = color2
@@ -95,10 +100,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 100
         
     }
-//    func tableView(_ tableView: UITableView,
-//                   editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        return .none
-//    }
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 // delete your item here and reload table view
