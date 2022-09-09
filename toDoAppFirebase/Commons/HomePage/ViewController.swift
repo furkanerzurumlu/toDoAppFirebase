@@ -9,7 +9,12 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
 class ViewController: UIViewController{
+    
+    
+    
+    // Read the timestamp by converting to UniqueID.
     
     @IBOutlet weak var allTaskTableView: UITableView!
     @IBOutlet weak var addTaskText: UITextField!
@@ -20,9 +25,8 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         setLayout()
+        
         allTaskTableView.dataSource = self
         allTaskTableView.delegate = self
         
@@ -31,10 +35,12 @@ class ViewController: UIViewController{
     }
     
     @IBAction func taskAddButton(_ sender: Any) {
+        
         let object: [String: Any] = [
-            "name": "deneme" as NSObject
+            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject
         ]
-        database.child("someting").setValue(object)
+        database.child("\(generateUniqueID())").setValue(object)
+        addTaskText.text = ""
     }
     
     func setLayout(){
@@ -49,8 +55,9 @@ class ViewController: UIViewController{
         taskAddButton.layer.borderColor = UIColor.black.cgColor
         
         allTaskTableView.separatorColor = .white
-    
+        
         addTaskText.placeholder = "Add Task"
+        addTaskText.textAlignment = .center
         
         let color1 = hexStringToUIColor(hex: "#FCF8E8")
         let color2 = hexStringToUIColor(hex: "94B49F")
@@ -58,6 +65,10 @@ class ViewController: UIViewController{
         taskAddButton.backgroundColor = color2
         allTaskTableView.backgroundColor = color2
         
+    }
+    func generateUniqueID() -> String{
+        let uuid = UUID().uuidString
+        return uuid
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -100,11 +111,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 100
         
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                // delete your item here and reload table view
-            }
+        if editingStyle == .delete {
+            // delete your item here and reload table view
+        }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_,_,completionHandler) in

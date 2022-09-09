@@ -19,7 +19,22 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfW-Fx-64f">
                         <rect key="frame" x="10" y="10" width="300" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-E6-2ed">
+                                <rect key="frame" x="10" y="20" width="280" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ZbC-E6-2ed" secondAttribute="bottom" constant="20" id="0hw-YC-7em"/>
+                            <constraint firstItem="ZbC-E6-2ed" firstAttribute="leading" secondItem="RfW-Fx-64f" secondAttribute="leading" constant="10" id="AE5-ux-Z4M"/>
+                            <constraint firstItem="ZbC-E6-2ed" firstAttribute="top" secondItem="RfW-Fx-64f" secondAttribute="top" constant="20" id="XaK-Do-Eyi"/>
+                            <constraint firstAttribute="trailing" secondItem="ZbC-E6-2ed" secondAttribute="trailing" constant="10" id="iP4-MX-NUy"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
