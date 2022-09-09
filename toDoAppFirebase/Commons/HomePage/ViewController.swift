@@ -37,7 +37,8 @@ class ViewController: UIViewController{
     @IBAction func taskAddButton(_ sender: Any) {
         
         let object: [String: Any] = [
-            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject
+            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
+            "Time": "\(taskTime())"
         ]
         database.child("\(generateUniqueID())").setValue(object)
         addTaskText.text = ""
@@ -69,6 +70,20 @@ class ViewController: UIViewController{
     func generateUniqueID() -> String{
         let uuid = UUID().uuidString
         return uuid
+    }
+    func taskTime() -> String{
+        let today = Date()
+        
+        let hours = (Calendar.current.component(.hour, from: today))
+        let minutes = (Calendar.current.component(.minute, from: today))
+        let seconder = (Calendar.current.component(.second, from: today))
+        let date = (Calendar.current.component(.day, from: today))
+        let mounth = (Calendar.current.component(.month, from: today))
+        let year = (Calendar.current.component(.year, from: today))
+        
+        let time = "\(date).\(mounth).\(year) - \(hours):\(minutes):\(seconder) "
+        
+        return time
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
