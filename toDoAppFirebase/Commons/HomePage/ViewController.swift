@@ -82,7 +82,6 @@ class ViewController: UIViewController{
         let year = (Calendar.current.component(.year, from: today))
         
         let time = "\(date).\(mounth).\(year) - \(hours):\(minutes):\(seconder) "
-        
         return time
     }
     
