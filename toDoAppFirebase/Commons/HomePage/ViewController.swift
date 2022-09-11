@@ -40,7 +40,7 @@ class ViewController: UIViewController{
             "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
             "Time": "\(taskTime())"
         ]
-        database.child("\(generateUniqueID())").setValue(object)
+        database.child("Task").childByAutoId().setValue(object)
         addTaskText.text = ""
     }
     
@@ -67,10 +67,7 @@ class ViewController: UIViewController{
         allTaskTableView.backgroundColor = color2
         
     }
-    func generateUniqueID() -> String{
-        let uuid = UUID().uuidString
-        return uuid
-    }
+
     func taskTime() -> String{
         let today = Date()
         
