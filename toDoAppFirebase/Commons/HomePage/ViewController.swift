@@ -12,10 +12,6 @@ import FirebaseDatabase
 
 class ViewController: UIViewController{
     
-    
-    
-    // Read the timestamp by converting to UniqueID.
-    
     @IBOutlet weak var allTaskTableView: UITableView!
     @IBOutlet weak var addTaskText: UITextField!
     @IBOutlet weak var taskAddButton: UIButton!
@@ -40,7 +36,7 @@ class ViewController: UIViewController{
             "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
             "Time": "\(taskTime())"
         ]
-        database.child("Task").childByAutoId().setValue(object)
+        database.childByAutoId().setValue(object)
         addTaskText.text = ""
     }
     
