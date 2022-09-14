@@ -16,12 +16,19 @@ class ViewController: UIViewController{
     @IBOutlet weak var addTaskText: UITextField!
     @IBOutlet weak var taskAddButton: UIButton!
     
+    
+    
     private let database = Database.database().reference()
+    
+    var taskList = [TaskModel]()
+    var refTask: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refTask = database.ref.child("task")
         setLayout()
+        observingTheData()
         
         allTaskTableView.dataSource = self
         allTaskTableView.delegate = self
@@ -32,12 +39,13 @@ class ViewController: UIViewController{
     
     @IBAction func taskAddButton(_ sender: Any) {
         
-        let object: [String: Any] = [
-            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
-            "Time": "\(taskTime())"
-        ]
-        database.childByAutoId().setValue(object)
-        addTaskText.text = ""
+        addTask()
+//        let object: [String: Any] = [
+//            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
+//            "Time": "\(taskTime())"
+//        ]
+//        database.childByAutoId().setValue(object)
+//        addTaskText.text = ""
     }
     
     func setLayout(){
@@ -62,6 +70,35 @@ class ViewController: UIViewController{
         taskAddButton.backgroundColor = color2
         allTaskTableView.backgroundColor = color2
         
+    }
+    func addTask(){
+        let key = refTask.childByAutoId().key
+        
+        let task = ["ID":key,"Task": addTaskText.text! as String,
+                    "Time": "\(taskTime())" as String]
+        refTask.child(key ?? "").setValue(task)
+        
+        addTaskText.text = ""
+        
+    }
+    func observingTheData(){
+        refTask.observe(DataEventType.value, with: { (snapshot) in
+            
+            if snapshot.childrenCount > 0 {
+                self.taskList.removeAll()
+                
+                for tasks in snapshot.children.allObjects as! [DataSnapshot] {
+                    let taskObject = tasks.value as? [String: AnyObject]
+                    let taskName = taskObject?["taskName"]
+                    let taskID = taskObject?["id"]
+                    
+                    let task = TaskModel(id: taskID as! String?, task: taskName as! String?)
+                    
+                    self.taskList.append(task)
+                }
+                self.allTaskTableView.reloadData()
+            }
+        })
     }
 
     func taskTime() -> String{
@@ -104,13 +141,20 @@ class ViewController: UIViewController{
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return taskList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = allTaskTableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as! TaskCell
         cell.selectionStyle = .none
         let colorCell = hexStringToUIColor(hex: "#FCF8E8")
         cell.cellView.backgroundColor = colorCell
+        
+        let task: TaskModel
+        
+        task = taskList[indexPath.row]
+        
+        cell.taskLabel.text = task.task
+        
         return cell
     }
     

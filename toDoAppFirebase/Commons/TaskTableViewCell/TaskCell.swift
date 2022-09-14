@@ -10,6 +10,7 @@ import UIKit
 class TaskCell: UITableViewCell {
     
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var taskLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

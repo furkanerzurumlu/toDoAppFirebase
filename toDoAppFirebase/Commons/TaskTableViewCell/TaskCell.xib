@@ -48,6 +48,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="cellView" destination="RfW-Fx-64f" id="7Xo-lu-n2w"/>
+                <outlet property="taskLabel" destination="ZbC-E6-2ed" id="THm-aN-llz"/>
             </connections>
             <point key="canvasLocation" x="139" y="77"/>
         </tableViewCell>
