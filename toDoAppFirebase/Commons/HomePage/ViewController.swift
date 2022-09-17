@@ -6,27 +6,24 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseDatabase
 
 
 class ViewController: UIViewController{
+    
+    var viewModel = HomePageVM()
     
     @IBOutlet weak var allTaskTableView: UITableView!
     @IBOutlet weak var addTaskText: UITextField!
     @IBOutlet weak var taskAddButton: UIButton!
     
-    private let database = Database.database().reference()
-    
-    var taskList = [TaskModel]()
-    var refTask: DatabaseReference!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        refTask = database.ref.child("task")
+        viewModel.refreshTableView = { [weak self] in
+            self?.allTaskTableView.reloadData()
+        }
+        viewModel.delegate = self
         setLayout()
-        observingTheData()
+        viewModel.observingTheData()
         
         allTaskTableView.dataSource = self
         allTaskTableView.delegate = self
@@ -37,13 +34,9 @@ class ViewController: UIViewController{
     
     @IBAction func taskAddButton(_ sender: Any) {
         
-        addTask()
-        //        let object: [String: Any] = [
-        //            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
-        //            "Time": "\(taskTime())"
-        //        ]
-        //        database.childByAutoId().setValue(object)
-        //        addTaskText.text = ""
+        viewModel.addTask(text: addTaskText.text ?? "")
+        addTaskText.text = ""
+        
     }
     
     func setLayout(){
@@ -70,54 +63,6 @@ class ViewController: UIViewController{
         
         
         
-    }
-    func addTask(){
-        let key = refTask.childByAutoId().key
-        
-        let task = ["ID":key,"Task": addTaskText.text! as String,
-                    "Time": "\(taskTime())" as String]
-        refTask.child(key ?? "").setValue(task)
-        
-        addTaskText.text = ""
-        
-    }
-    func observingTheData(){
-        refTask = database.ref.child("task")
-        refTask.observe(DataEventType.value, with: { (snapshot) in
-            
-            if snapshot.childrenCount > 0 {
-                self.taskList.removeAll()
-                
-                for tasks in snapshot.children.allObjects as! [DataSnapshot] {
-                    let taskObject = tasks.value as? [String: AnyObject]
-                    let taskName = taskObject?["Task"]
-                    let taskID = taskObject?["ID"]
-                    
-                    let task = TaskModel(id: taskID as! String?, task: taskName as! String?)
-                    
-                    self.taskList.append(task)
-                    print(self.taskList.first)
-                }
-                self.allTaskTableView.reloadData()
-            }
-        })
-    }
-    func deleteTask(id: String){
-        refTask.child(id).setValue(nil)
-    }
-    
-    func taskTime() -> String{
-        let today = Date()
-        
-        let hours = (Calendar.current.component(.hour, from: today))
-        let minutes = (Calendar.current.component(.minute, from: today))
-        let seconder = (Calendar.current.component(.second, from: today))
-        let date = (Calendar.current.component(.day, from: today))
-        let mounth = (Calendar.current.component(.month, from: today))
-        let year = (Calendar.current.component(.year, from: today))
-        
-        let time = "\(date).\(mounth).\(year) - \(hours):\(minutes):\(seconder) "
-        return time
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -146,7 +91,7 @@ class ViewController: UIViewController{
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskList.count
+        return viewModel.taskList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = allTaskTableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as! TaskCell
@@ -156,14 +101,31 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let task: TaskModel
         
-        task = taskList[indexPath.row]
+        task = viewModel.taskList[indexPath.row]
         print(task.task as Any)
         
         cell.taskLabel.text = "\(task.task ?? "")"
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = viewModel.taskList[indexPath.row]
+        
+        let alertController = UIAlertController(title: task.task, message: "Give new values to update ", preferredStyle: .alert)
+        alertController.addTextField()
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { [unowned self] (data) in
+            
+            let id = task.id
+            
+            let task = alertController.textFields?[0].text
+
+            self.viewModel.updateTask(id: id!, task: task!)
+        }
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true)
+        
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
         
@@ -173,9 +135,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_,_,completionHandler) in
             //delete the item here
             let task: TaskModel
-            task = self.taskList[indexPath.row]
+            task = self.viewModel.taskList[indexPath.row]
             
-            self.deleteTask(id:task.id!)
+            self.viewModel.deleteTask(id:task.id!)
             
             completionHandler(true)
         }
@@ -185,4 +147,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }
+}
+
+extension ViewController: HomePageVMDelegate {
+    func refreshTableView() {
+        self.allTaskTableView.reloadData()
+    }
+    
+    
 }
