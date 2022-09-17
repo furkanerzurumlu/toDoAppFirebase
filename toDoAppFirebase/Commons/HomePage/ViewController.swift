@@ -159,7 +159,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         task = taskList[indexPath.row]
         print(task.task as Any)
         
-        cell.taskLabel.text = "\(String(describing: task.task))"
+        cell.taskLabel.text = "\(task.task ?? "")"
         
         return cell
     }
@@ -169,7 +169,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_,_,completionHandler) in
             //delete the item here

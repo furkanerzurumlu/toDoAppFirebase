@@ -76,6 +76,14 @@
 			path = TaskTableViewCell;
 			sourceTree = "<group>";
 		};
+		DC8B4BCA28D617EC004EEBA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC8B4BC828D1ECF2004EEBA7 /* TaskModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DCD299D028B4CC06001702CD = {
 			isa = PBXGroup;
 			children = (
@@ -98,13 +106,13 @@
 		DCD299DB28B4CC06001702CD /* toDoAppFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				DC8B4BCA28D617EC004EEBA7 /* Model */,
 				DCD29A0228B4E82A001702CD /* Commons */,
 				DCD299DC28B4CC06001702CD /* AppDelegate.swift */,
 				DCD299DE28B4CC06001702CD /* SceneDelegate.swift */,
 				DCD299E528B4CC07001702CD /* Assets.xcassets */,
 				DCD299E728B4CC07001702CD /* LaunchScreen.storyboard */,
 				DCD299EA28B4CC07001702CD /* Info.plist */,
-				DC8B4BC828D1ECF2004EEBA7 /* TaskModel.swift */,
 			);
 			path = toDoAppFirebase;
 			sourceTree = "<group>";
