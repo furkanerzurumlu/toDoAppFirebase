@@ -102,9 +102,10 @@ class ViewController: UIViewController{
             }
         })
     }
-    func deleteTask(id:String){
+    func deleteTask(id: String){
         refTask.child(id).setValue(nil)
     }
+    
     func taskTime() -> String{
         let today = Date()
         
@@ -168,22 +169,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            print("delete")
-            self.taskList.remove(at: indexPath.row)
-            self.allTaskTableView.beginUpdates()
-            self.allTaskTableView.deleteRows(at: [indexPath], with: .automatic)
-            self.allTaskTableView.endUpdates()
-            //            let task = self.taskList[indexPath.row]
-            //            self.deleteTask(id: task.id!)
-            // delete your item here and reload table view
-        }
-    }
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_,_,completionHandler) in
             //delete the item here
+            let task: TaskModel
+            task = self.taskList[indexPath.row]
             
+            self.deleteTask(id:task.id!)
             
             completionHandler(true)
         }
