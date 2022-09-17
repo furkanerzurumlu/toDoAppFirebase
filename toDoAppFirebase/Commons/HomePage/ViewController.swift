@@ -16,8 +16,6 @@ class ViewController: UIViewController{
     @IBOutlet weak var addTaskText: UITextField!
     @IBOutlet weak var taskAddButton: UIButton!
     
-    
-    
     private let database = Database.database().reference()
     
     var taskList = [TaskModel]()
@@ -40,12 +38,12 @@ class ViewController: UIViewController{
     @IBAction func taskAddButton(_ sender: Any) {
         
         addTask()
-//        let object: [String: Any] = [
-//            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
-//            "Time": "\(taskTime())"
-//        ]
-//        database.childByAutoId().setValue(object)
-//        addTaskText.text = ""
+        //        let object: [String: Any] = [
+        //            "Task": "\(String(describing: self.addTaskText.text!))" as NSObject,
+        //            "Time": "\(taskTime())"
+        //        ]
+        //        database.childByAutoId().setValue(object)
+        //        addTaskText.text = ""
     }
     
     func setLayout(){
@@ -70,6 +68,8 @@ class ViewController: UIViewController{
         taskAddButton.backgroundColor = color2
         allTaskTableView.backgroundColor = color2
         
+        
+        
     }
     func addTask(){
         let key = refTask.childByAutoId().key
@@ -82,6 +82,7 @@ class ViewController: UIViewController{
         
     }
     func observingTheData(){
+        refTask = database.ref.child("task")
         refTask.observe(DataEventType.value, with: { (snapshot) in
             
             if snapshot.childrenCount > 0 {
@@ -89,22 +90,21 @@ class ViewController: UIViewController{
                 
                 for tasks in snapshot.children.allObjects as! [DataSnapshot] {
                     let taskObject = tasks.value as? [String: AnyObject]
-                    let taskName = taskObject?["taskName"]
-                    let taskID = taskObject?["id"]
+                    let taskName = taskObject?["Task"]
+                    let taskID = taskObject?["ID"]
                     
                     let task = TaskModel(id: taskID as! String?, task: taskName as! String?)
                     
                     self.taskList.append(task)
+                    print(self.taskList.first)
                 }
                 self.allTaskTableView.reloadData()
             }
         })
     }
     func deleteTask(id:String){
-            refTask.child(id).setValue(nil)
-        }
-
-
+        refTask.child(id).setValue(nil)
+    }
     func taskTime() -> String{
         let today = Date()
         
@@ -175,8 +175,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             self.allTaskTableView.beginUpdates()
             self.allTaskTableView.deleteRows(at: [indexPath], with: .automatic)
             self.allTaskTableView.endUpdates()
-//            let task = self.taskList[indexPath.row]
-//            self.deleteTask(id: task.id!)
+            //            let task = self.taskList[indexPath.row]
+            //            self.deleteTask(id: task.id!)
             // delete your item here and reload table view
         }
     }
