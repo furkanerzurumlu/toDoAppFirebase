@@ -121,8 +121,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
             self.viewModel.updateTask(id: id!, task: task!)
         }
-        alertController.addAction(confirmAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ (_) in
+            
+        }
         
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true)
         
     }

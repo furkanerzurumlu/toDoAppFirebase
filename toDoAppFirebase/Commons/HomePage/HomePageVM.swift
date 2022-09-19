@@ -37,9 +37,7 @@ class HomePageVM {
                     "Time": "\(taskTime())" as String]
         refTask.child(key ?? "").setValue(task)
         
-        
     }
-    
     
     func taskTime() -> String{
         let today = Date()
