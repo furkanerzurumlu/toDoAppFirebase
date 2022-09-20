@@ -13,6 +13,7 @@
 		DC8B4BC728CA066B004EEBA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8B4BC628CA066B004EEBA7 /* GoogleService-Info.plist */; };
 		DC8B4BC928D1ECF2004EEBA7 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8B4BC828D1ECF2004EEBA7 /* TaskModel.swift */; };
 		DC8B4BCC28D66F7B004EEBA7 /* HomePageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8B4BCB28D66F7B004EEBA7 /* HomePageVM.swift */; };
+		DC8B4BCF28D8A7C4004EEBA7 /* UIViewController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8B4BCE28D8A7C4004EEBA7 /* UIViewController-Extension.swift */; };
 		DCD299DD28B4CC06001702CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299DC28B4CC06001702CD /* AppDelegate.swift */; };
 		DCD299DF28B4CC06001702CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299DE28B4CC06001702CD /* SceneDelegate.swift */; };
 		DCD299E128B4CC06001702CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD299E028B4CC06001702CD /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		DC8B4BC628CA066B004EEBA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8B4BC828D1ECF2004EEBA7 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		DC8B4BCB28D66F7B004EEBA7 /* HomePageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVM.swift; sourceTree = "<group>"; };
+		DC8B4BCE28D8A7C4004EEBA7 /* UIViewController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extension.swift"; sourceTree = "<group>"; };
 		DCD299D928B4CC06001702CD /* toDoAppFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoAppFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD299DC28B4CC06001702CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD299DE28B4CC06001702CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,10 +88,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DC8B4BCD28D8A7A0004EEBA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC8B4BCE28D8A7C4004EEBA7 /* UIViewController-Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DCD299D028B4CC06001702CD = {
 			isa = PBXGroup;
 			children = (
-				DC8B4BC628CA066B004EEBA7 /* GoogleService-Info.plist */,
 				DCD299DB28B4CC06001702CD /* toDoAppFirebase */,
 				DCD299DA28B4CC06001702CD /* Products */,
 				14A1AEFBDFD6DE73BA59FF37 /* Pods */,
@@ -108,12 +117,14 @@
 		DCD299DB28B4CC06001702CD /* toDoAppFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				DC8B4BCD28D8A7A0004EEBA7 /* Extensions */,
 				DC8B4BCA28D617EC004EEBA7 /* Model */,
 				DCD29A0228B4E82A001702CD /* Commons */,
 				DCD299DC28B4CC06001702CD /* AppDelegate.swift */,
 				DCD299DE28B4CC06001702CD /* SceneDelegate.swift */,
 				DCD299E528B4CC07001702CD /* Assets.xcassets */,
 				DCD299E728B4CC07001702CD /* LaunchScreen.storyboard */,
+				DC8B4BC628CA066B004EEBA7 /* GoogleService-Info.plist */,
 				DCD299EA28B4CC07001702CD /* Info.plist */,
 			);
 			path = toDoAppFirebase;
@@ -256,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC11319E28C64BE10076DC4E /* TaskCell.swift in Sources */,
+				DC8B4BCF28D8A7C4004EEBA7 /* UIViewController-Extension.swift in Sources */,
 				DCD299E128B4CC06001702CD /* ViewController.swift in Sources */,
 				DC8B4BCC28D66F7B004EEBA7 /* HomePageVM.swift in Sources */,
 				DC8B4BC928D1ECF2004EEBA7 /* TaskModel.swift in Sources */,
@@ -411,6 +423,7 @@
 				DEVELOPMENT_TEAM = NVN42XWXC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = toDoAppFirebase/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Do Stuff";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -440,6 +453,7 @@
 				DEVELOPMENT_TEAM = NVN42XWXC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = toDoAppFirebase/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Do Stuff";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
