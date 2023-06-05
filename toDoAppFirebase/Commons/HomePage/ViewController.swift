@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  toDoAppFirebase
 //
-//  Created by Furkan Erzurumlu on 23.08.2022.
+//  Created by Furkan Erzurumlu on 23.09.2022.
 //
 
 import UIKit
@@ -118,7 +118,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let id = task.id
             
             let task = alertController.textFields?[0].text
-
+            
             self.viewModel.updateTask(id: id!, task: task!)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ (_) in

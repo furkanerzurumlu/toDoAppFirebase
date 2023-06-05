@@ -2,7 +2,7 @@
 //  HomePageVM.swift
 //  toDoAppFirebase
 //
-//  Created by Furkan Erzurumlu on 18.09.2022.
+//  Created by Furkan Erzurumlu on 23.09.2022.
 //
 
 import Foundation
@@ -18,7 +18,6 @@ class HomePageVM {
     var delegate: HomePageVMDelegate?
     
     var refreshTableView: (() -> Void)?
-    
     
     private let database = Database.database().reference()
     
